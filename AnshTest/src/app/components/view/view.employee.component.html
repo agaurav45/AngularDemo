@@ -1,6 +1,11 @@
 
 
 <div class="view-employee">
+
+	<div>
+		<input type="text" name="searchValue" [(ngModel)]="searchValue" placeholder="Search by Name or City" />	
+	</div>
+	
 	<table cellspacing="0" cellpadding="0">
 		<thead>
 			<tr>
@@ -14,7 +19,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr *ngFor="let emp of empList">
+			<tr *ngFor="let emp of empList | searchResult: {'name,city':searchValue}">
 				<td>{{emp.id}}</td>
 				<td>{{emp.name}}</td>
 				<td>{{emp.phone}}</td>
