@@ -16,6 +16,10 @@ export class EmployeeService {
 				
 	getData() {
 		return this.dummyJson.data;
-	}				
+	}	
+
+	addData(value) {
+		this.dummyJson.data.push(value);
+	}
 	
 }

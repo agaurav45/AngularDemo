@@ -2,8 +2,9 @@
 
 <div class="view-employee">
 
-	<div>
+	<div class="search-employee">
 		<input type="text" name="searchValue" [(ngModel)]="searchValue" placeholder="Search by Name or City" />	
+		<button name="addNew" class="btn btn-primary" (click)="addNewEmp()">ADD NEW</button>
 	</div>
 	
 	<table cellspacing="0" cellpadding="0">
@@ -16,6 +17,7 @@
 				<th>Address 1</th>
 				<th>Address 2</th>
 				<th>Postal Code</th>
+				<th>Edit</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -27,6 +29,7 @@
 				<td>{{emp.address.address_line1}}</td>
 				<td>{{emp.address.address_line2}}</td>
 				<td>{{emp.address.postal_code}}</td>
+				<td><a href="javascript:void(0)" (click)="editEmp(emp)">Edit</a></td>
 			</tr>
 		</tbody>
 	</table>

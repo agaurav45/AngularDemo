@@ -8,7 +8,7 @@ import { EditEmployeeComponent } from './components/edit/edit.employee.component
 const routes: Routes = [
   { path: 'employees', component: ViewEmployeeComponent },
   { path: 'employees/add', component: AddEmployeeComponent },
-  { path: 'employees/edit', component: EditEmployeeComponent },
+  { path: 'employees/edit/:id', component: EditEmployeeComponent },
   { path: '**', redirectTo: '/employees' }
 ];
  

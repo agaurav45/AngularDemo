@@ -14,9 +14,9 @@ import { EmployeeService } from '../../services/employee.service';
 export class ViewEmployeeComponent {
 	
 	public empList: any = [];
-	public searchValue = '';
-	
-	constructor(public employeeService: EmployeeService, public public router: Router,private route: ActivatedRoute) {
+	public searchValue:String = '';
+
+	constructor(public employeeService: EmployeeService, public router: Router) {
 
 	}
 
@@ -30,4 +30,12 @@ export class ViewEmployeeComponent {
 		});
 	}
   
+	addNewEmp() {
+		this.router.navigate(['employees/add']);
+	}
+	
+	editEmp(employee) {
+		this.router.navigate(['employees/edit', employee.id]);
+	}
+	
 }

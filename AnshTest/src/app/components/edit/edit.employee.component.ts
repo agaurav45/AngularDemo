@@ -1,22 +1,28 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {Router,ActivatedRoute} from "@angular/router";
 
+import { EmployeeService } from '../../services/employee.service';
 
 @Component({
-  selector: 'edit-employee',
-  templateUrl: './edit.employee.component.html',
-  styleUrls: ['./edit.employee.component.css'],
-  encapsulation: ViewEncapsulation.None
+	selector: 'edit-employee',
+	templateUrl: './edit.employee.component.html',
+	styleUrls: ['./edit.employee.component.css'],
+	encapsulation: ViewEncapsulation.None
 })
 export class EditEmployeeComponent {
+	public empId:any = '';
+	public editEmpData:any;
 
+	constructor(public employeeService: EmployeeService, public router: Router, public route: ActivatedRoute) {
+		this.empId = this.route.snapshot.params.id;
+	}
 
-  constructor(public router: Router,private route: ActivatedRoute) {
+	ngOnInit() {
+		let data = this.employeeService.getData();
+		this.editEmpData = data.find(item => item.id == this.empId);
+	}
 
-  }
-
-  ngOnInit() {
-  }
-
-  
+	editEmployee(editEmp) {
+		this.router.navigate(['employees']);
+	}
 }
