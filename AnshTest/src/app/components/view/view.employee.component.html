@@ -1,0 +1,28 @@
+
+
+<div class="view-employee">
+	<table cellspacing="0" cellpadding="0">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Name</th>
+				<th>Phone</th>
+				<th>City</th>
+				<th>Address 1</th>
+				<th>Address 2</th>
+				<th>Postal Code</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let emp of empList">
+				<td>{{emp.id}}</td>
+				<td>{{emp.name}}</td>
+				<td>{{emp.phone}}</td>
+				<td>{{emp.address.city}}</td>
+				<td>{{emp.address.address_line1}}</td>
+				<td>{{emp.address.address_line2}}</td>
+				<td>{{emp.address.postal_code}}</td>
+			</tr>
+		</tbody>
+	</table>
+<div>
